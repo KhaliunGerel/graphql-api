@@ -31,10 +31,10 @@ Server runs at http://localhost:4000/graphql.
 
 ### TypeScript + Code Generation
 I used graphql-codegen for code generation and used the generated types in `./generated/graphql` for all resolver arguments, return types and enums. It provides type safety, ensures consistency with the schema and enables compile-time checks.
-I initially tried manually defining types in typescript, but manual types can easily from the schema and raise runtime errors. Also, maintaining two separate files manually is error-prone and duplicates work for developers.
+I initially tried manually defining types in typescript, but manual types can easily drift from the schema and raise runtime errors. Also, maintaining two separate files manually is error-prone and duplicate work for developers.
 
 ### In-memory storage
-Jobs and models are stored in Map objects rather than using database or job queue because it simplifies implementation and testing.  
+Jobs and models are stored in Map objects rather than using database or queue because it simplifies implementation and testing.  
 
 ### Server Framework Choice
 I used Apollo Server to run the GraphQL API.It integrates seamlessly with graphql-tools and provides ready to use GraphQL Playground for testing, which is really convenient to use. Other alternatives, like Express-GraphQL, Yoga or Fastify GraphQL were considered. And Apollo was chosen for it's clean setup and easy to extend for subscriptions or authentication.
