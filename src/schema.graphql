@@ -1,0 +1,49 @@
+enum RegressionModelType {
+  LINEAR
+  LASSO
+  RIDGE
+}
+
+enum JobStatus {
+  QUEUED
+  RUNNING
+  COMPLETED
+  FAILED
+}
+
+input PointInput {
+  x: Float!
+  y: Float!
+}
+
+type Job {
+  id: ID!
+  status: JobStatus!
+  resultModelId: ID
+  error: String
+  startedAt: String
+  finishedAt: String
+}
+
+type Model {
+  id: ID!
+  modelType: RegressionModelType!
+  trainedAt: String!
+  alpha: Float
+  meta: String
+}
+
+type Query {
+  job(id: ID!): Job
+  model(id: ID!): Model
+}
+
+type Mutation {
+  startJob(
+    points: [PointInput!]!
+    modelType: RegressionModelType!
+    alpha: Float
+  ): Job!
+
+  predict(modelId: ID!, x: Float!): Float!
+}

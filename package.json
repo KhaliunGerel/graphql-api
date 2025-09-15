@@ -1,0 +1,27 @@
+{
+  "name": "regression-poc",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "ts-node src/server.ts",
+    "start:dev": "ts-node-dev --respawn --transpile-only src/server.ts",
+    "build": "tsc",
+    "codegen": "graphql-codegen --config codegen.yml"
+  },
+  "dependencies": {
+    "apollo-server": "^3.12.0",
+    "fs": "^0.0.1-security",
+    "graphql": "^16.6.0",
+    "graphql-tools": "^9.0.20",
+    "path": "^0.12.7",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "^6.0.0",
+    "@graphql-codegen/typescript": "^5.0.0",
+    "@graphql-codegen/typescript-resolvers": "^5.0.0",
+    "@types/uuid": "^10.0.0",
+    "ts-node": "^10.9.1",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.1.3"
+  }
+}
